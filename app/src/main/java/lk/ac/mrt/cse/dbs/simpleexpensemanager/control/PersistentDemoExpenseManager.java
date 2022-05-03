@@ -17,6 +17,7 @@
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.control;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteConstraintException;
 
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.AccountDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.TransactionDAO;
@@ -53,7 +54,7 @@ public class PersistentDemoExpenseManager extends ExpenseManager {
             Account dummyAcct2 = new Account("78945Z", "Clone BC", "Obi-Wan Kenobi", 80000.0);
             getAccountsDAO().addAccount(dummyAcct1);
             getAccountsDAO().addAccount(dummyAcct2);
-        } catch(Exception e){}
+        } catch(SQLiteConstraintException e){}
 
 
         /*** End ***/

@@ -48,6 +48,7 @@ public class PersistentAccountDAO extends DbHelper implements AccountDAO {
 
     @Override
     public List<String> getAccountNumbersList() {
+        this.accountNumbersList = new ArrayList<String>();
         SQLiteDatabase db=this.getReadableDatabase();
         String querySql = "SELECT " + COLUMN_ACCOUNT_NUMBER + " FROM " + ACCOUNTS_TABLE +";";
         Cursor csr = db.rawQuery(querySql,null);
@@ -66,7 +67,7 @@ public class PersistentAccountDAO extends DbHelper implements AccountDAO {
 
     @Override
     public List<Account> getAccountsList() {
-        this.accountsList.clear();
+        this.accountsList = new ArrayList<Account>();
         SQLiteDatabase db=this.getReadableDatabase();
         String querySql = "SELECT * FROM " + ACCOUNTS_TABLE + ";";
         Cursor csr = db.rawQuery(querySql,null);
@@ -151,12 +152,12 @@ public class PersistentAccountDAO extends DbHelper implements AccountDAO {
         double accountBalance;
         if(csr.moveToFirst()){
             accountBalance = csr.getDouble(0);
-            switch(expenseType){
+            switch(expenseType) {
                 case EXPENSE:
-                    accountBalance-=amount;
+                    accountBalance -= amount;
                     break;
                 case INCOME:
-                    accountBalance+=amount;
+                    accountBalance += amount;
                     break;
             }
         }else{
