@@ -1,0 +1,4 @@
+#Tue May 10 17:59:15 IST 2022
+base.0=C\:\\Users\\asus rog\\StudioProjects\\SimpleExpenseManager\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeDexDebugAndroidTest\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

@@ -54,7 +54,9 @@ public class PersistentDemoExpenseManager extends ExpenseManager {
             Account dummyAcct2 = new Account("78945Z", "Clone BC", "Obi-Wan Kenobi", 80000.0);
             getAccountsDAO().addAccount(dummyAcct1);
             getAccountsDAO().addAccount(dummyAcct2);
-        } catch(SQLiteConstraintException e){}
+        } catch(SQLiteConstraintException e){
+            e.printStackTrace();
+        }
 
 
         /*** End ***/
