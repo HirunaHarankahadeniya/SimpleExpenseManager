@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\tissa\\StudioProjects\\SimpleExpenseManager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v12\\values-v12.xml",
+            "outputFile": "C:\\Users\\asus rog\\StudioProjects\\SimpleExpenseManager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v12\\values-v12.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\tissa\\.gradle\\caches\\transforms-2\\files-2.1\\22201284f06052f57e5af9bcb65a52a3\\appcompat-v7-26.1.0\\res\\values-v12\\values-v12.xml",
+                    "source": "C:\\Users\\asus rog\\.gradle\\caches\\transforms-2\\files-2.1\\22201284f06052f57e5af9bcb65a52a3\\appcompat-v7-26.1.0\\res\\values-v12\\values-v12.xml",
                     "from": {
                         "startLines": "2,5,8,9",
                         "startColumns": "4,4,4,4",
