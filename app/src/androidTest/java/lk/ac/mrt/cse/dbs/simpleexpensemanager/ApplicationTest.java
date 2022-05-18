@@ -43,6 +43,7 @@ import java.util.List;
 
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.ExpenseManager;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.PersistentDemoExpenseManager;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.exception.InvalidAccountException;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Transaction;
@@ -68,15 +69,13 @@ public class ApplicationTest{
 
     @Test
     public void addTransactionTest(){
+        int before_size = expenseManager.getTransactionLogs().size();
         try {
-            expenseManager.getTransactionsDAO().logTransaction(new SimpleDateFormat("yyyy-mm-dd").parse("2022-05-10"),"12345A",ExpenseType.INCOME, 2000);
-        } catch (ParseException e) {
+            expenseManager.updateAccountBalance("12345A",21, 6, 2022, ExpenseType.EXPENSE, "1000");
+        } catch (InvalidAccountException e) {
             e.printStackTrace();
         }
-        List<Transaction> tr = expenseManager.getTransactionLogs();
-        Transaction t = tr.get(tr.size()-1);
-        assertArrayEquals(new String[] {new SimpleDateFormat("yyyy-mm-dd").format(t.getDate()), t.getAccountNo()},  new String[]{"2022-05-10","12345A" });
-        assertEquals(t.getExpenseType(), ExpenseType.INCOME);
-        assertEquals(t.getAmount(),2000, 0.0001);
+        int after_size  = expenseManager.getTransactionLogs().size();
+        assertTrue(before_size<after_size);
     }
 }
