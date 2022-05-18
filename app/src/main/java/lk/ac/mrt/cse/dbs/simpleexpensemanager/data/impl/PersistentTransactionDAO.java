@@ -50,7 +50,7 @@ public class PersistentTransactionDAO extends DbHelper implements TransactionDAO
     public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String strDate = dateFormat.format(date);
 
         cv.put(COLUMN_ACCOUNT_NUMBER, accountNo);
@@ -73,7 +73,7 @@ public class PersistentTransactionDAO extends DbHelper implements TransactionDAO
             do {
                 Date date = null;
                 try {
-                    date = new SimpleDateFormat("yyyy-mm-dd").parse(csr.getString(1));
+                    date = new SimpleDateFormat("yyyy-MM-dd").parse(csr.getString(1));
                 } catch (Exception e) {
                 }
                 String accountNo = csr.getString(2);

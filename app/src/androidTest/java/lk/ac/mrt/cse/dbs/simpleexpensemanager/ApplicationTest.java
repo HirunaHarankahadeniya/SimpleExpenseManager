@@ -69,13 +69,16 @@ public class ApplicationTest{
 
     @Test
     public void addTransactionTest(){
-        int before_size = expenseManager.getTransactionLogs().size();
         try {
-            expenseManager.updateAccountBalance("12345A",21, 6, 2022, ExpenseType.EXPENSE, "1000");
+            expenseManager.updateAccountBalance("12345A",26, 7, 2022, ExpenseType.EXPENSE, "2000");
         } catch (InvalidAccountException e) {
             e.printStackTrace();
         }
-        int after_size  = expenseManager.getTransactionLogs().size();
-        assertTrue(before_size<after_size);
+        List<Transaction> tr = expenseManager.getTransactionLogs();
+        Transaction t = tr.get(tr.size()-1);
+        String dt = new SimpleDateFormat("dd-MM-yyyy").format(t.getDate());
+        assertArrayEquals(new String[] {new SimpleDateFormat("dd-MM-yyyy").format(t.getDate()), t.getAccountNo()},  new String[]{"26-08-2022","12345A" });
+        assertEquals(t.getExpenseType(), ExpenseType.EXPENSE);
+        assertEquals(t.getAmount(),2000, 0.0001);
     }
 }
